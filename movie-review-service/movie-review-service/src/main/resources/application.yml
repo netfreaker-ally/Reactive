@@ -1,0 +1,31 @@
+
+  # Optional: Enables the H2 console for debugging, accessible via http://localhost:8080/h2-console
+spring:
+  application:
+    name: movie-review-service
+  r2dbc:
+    url: r2dbc:h2:mem:///movie-review-service
+    username: sa
+    password: ''
+
+  datasource:
+    url: jdbc:h2:mem:movie-review-service
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+  
+  h2:
+    console:
+      enabled: true
+  
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+logging:
+  level:
+    org:
+      springframework:
+        r2dbc: DEBUG
+server:
+  port: 8081   # Specifies the port on which your Spring Boot application will run
